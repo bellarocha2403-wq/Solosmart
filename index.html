@@ -400,7 +400,7 @@
       frete.innerHTML = "";
 
       try {
-        const resposta = await fetch('https://viacep.com.br/ws/${cepLimpo}/json/');
+        const resposta = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
         const dados = await resposta.json();
 
         if (dados.erro) {
