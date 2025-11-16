@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SoloSmart oferece soluções em agricultura inteligente, incluindo medidores de umidade do solo para apoiar agricultores familiares e hortas comunitárias.">
+
+  <title>SoloSmart — Agricultura Inteligente</title>
+  <link rel="icon" type="image/png" href="SoloSmart_logoficial.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(180deg, #e9f9ec 0%, #b8f0c4 100%);
+      color: #222;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: white;
+      padding: 20px 30px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+    header .logo-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header img {
+      width: 320px;
+      height: auto;
+      transition: transform 0.3s ease;
+      margin-bottom: 10px;
+    }
+
+    header h1 {
+      color: #1b7a2b;
+      font-size: 28pt;
+      margin: 0;
+    }
+
+    header nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    header nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      font-size: 13pt;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    header nav a:hover {
+      background-color: #e9f9ec;
+      color: #1b7a2b;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 16px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+    }
+
+    h3 {
+      color: #1b7a2b;
+      font-size: 17pt;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 13.5pt;
+      text-align: justify;
+      line-height: 1.8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: white;
+      color: #444;
+      font-size: 12.5pt;
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    button {
+      background-color: #1b7a2b;
+      color: white;
+      font-size: 14pt;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      display: block;
+      margin: 10px auto;
+    }
+
+    button:hover {
+      background-color: #166924;
+      transform: scale(1.02);
+    }
+
+    #saida, #frete {
+      margin-top: 15px;
+      font-size: 13pt;
+      background: #f9fff9;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #frete {
+      font-weight: bold;
+      color: #1b7a2b;
+      font-size: 14pt;
+    }
+    .produtos {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .produto-item {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+
+    .produto-item img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .produto-item p { text-align: justify; }
+
+    .produto-item ul {
+      margin-top: 15px;
+      padding-left: 25px;
+      text-align: left;
+    }
+
+    .produto-item li {
+      font-size: 13.5pt;
+      line-height: 1.8;
+      text-align: justify;
+      margin-bottom: 10px;
+    }
+
+    .equipe {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 20px;
+      justify-items: center;
+    }
+
+    .membro {
+      width: 100%;
+      max-width: 200px;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .membro img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #1b7a2b;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .membro p {
+      font-size: 12pt;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .equipe {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="#historico" class="logo-link">
+      <img src="SoloSmart_logoficial.jpg" alt="Logo SoloSmart">
+    </a>
+
+    <nav>
+      <a href="#historico">Empresa</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#funcionamento">Funcionamento</a>
+      <a href="#frete-section">Frete</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="historico">
+      <h3>Histórico da Empresa</h3>
+      <p>
+        A <strong>SoloSmart</strong>, fundada em 2025, desenvolve soluções tecnológicas acessíveis para monitorar a umidade do solo. Seu principal produto é um sistema automatizado baseado em Arduino que mede a umidade de até três plantas ao mesmo tempo, exibindo valores em tempo real (0 a 100%) e usando alertas visuais e sonoros para indicar quando a irrigação é necessária — LED vermelho aos 40% e buzzer contínuo aos 30%.
+        <br><br>
+        Voltada para pequenos produtores, hortas urbanas e cultivadores domésticos, a SoloSmart oferece uma alternativa prática e independente de internet, ajudando a evitar perdas por falta de água e garantindo maior controle sobre a irrigação. Atualmente em fase de prototipagem, a empresa planeja incluir sensores de temperatura, pH e análises de tipo de solo, buscando tornar-se referência em tecnologia simples, sustentável e eficiente para o manejo agrícola.
+      </p>
+    </section>
+
+    <section class="reveal" id="produtos">
+      <h3>Produtos e Serviços</h3>
+
+      <div class="produtos">
+
+        <div class="produto-item">
+          <img src="medidor.jpg" alt="Medidor de umidade SoloSmart">
+          <p>
+            <strong>SoloSmart</strong> — Atualmente, o dispositivo SoloSmart é um sistema manual e local, que não utiliza conexão Wi-Fi, Bluetooth ou internet para o envio de informações. Toda a interação ocorre diretamente no local de uso, de forma prática e acessível, sem depender de dispositivos externos.
+          </p>
+        </div>
+
+        <div class="produto-item">
+          <img src="medidor_tela.jpg" alt="Display SoloSmart mostrando dados">
+          <p>
+            Versões futuras incluirão <strong>tecnologia IoT</strong>. Dessa forma, o SoloSmart funciona como um sistema de monitoramento local e independente, sem necessidade de internet, aplicativos ou conexões externas — atendendo pequenas produções e hortas.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="funcionamento">
+      <h3>Funcionamento do Protótipo</h3>
+
+      <div class="produtos">
+
+        <div class="produto-item">
+          <img src="Tink.png" alt="Protótipo inicial">
+                    <h3>Protótipo Inicial</h3>
+
+          <img src="Final.jpg" alt="Protótipo final">
+                    <h3>Protótipo Final</h3>
+
+        </div>
+
+        <div class="produto-item">
+          <p>O funcionamento ocorre da seguinte maneira:</p>
+
+          <ul>
+            <li>Os sensores de umidade do solo realizam a leitura dos níveis de umidade em até três plantas simultaneamente;</li>
+            <li>As informações são exibidas imediatamente em um display LCD, com valores percentuais de 0% a 100%;</li>
+            <li>O sistema de LEDs (vermelho) indica o estado do solo, facilitando a visualização do usuário;</li>
+            <li>Um buzzer sonoro é ativado quando o solo atinge níveis críticos de umidade (30%), alertando para a necessidade de irrigação.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <h3>Equipe de Desenvolvimento</h3>
+
+      <div class="equipe">
+
+        <div class="membro">
+          <img src="Adrian.jpg" alt="Adrian">
+          <p><strong>Adrian de Oliveira Lopes</strong><br>VideoMaker</p>
+        </div>
+
+        <div class="membro">
+          <img src="Eduardo_3D.jpg" alt="Carlos Eduardo">
+          <p><strong>Carlos Eduardo da Silva</strong><br>Desenvolvedor IoT</p>
+        </div>
+
+        <div class="membro">
+          <img src="Diogo.jpg" alt="Diogo">
+          <p><strong>Diogo Henrique da Silva Marques</strong><br>Desenvolvedor Back-End</p>
+        </div>
+
+        <div class="membro">
+          <img src="Felipe.png" alt="Felipe">
+          <p><strong>Felipe Silva San Martino</strong><br>VideoMaker</p>
+        </div>
+
+        <div class="membro">
+          <img src="Isa.jpg" alt="Isabella">
+          <p><strong>Isabella Maia Rocha</strong><br>Front-End</p>
+        </div>
+
+        <div class="membro">
+          <img src="Larissa.jpg" alt="Larissa">
+          <p><strong>Larissa Oliveira dos Santos</strong><br>Documentação</p>
+        </div>
+
+        <div class="membro">
+          <img src="Maria.jpg" alt="Maria Caroline">
+          <p><strong>Maria Caroline Correa de Souza</strong><br>Gerente de Projeto / Front-End</p>
+        </div>
+
+        <div class="membro">
+          <img src="Patrick.jpg" alt="Patrick">
+          <p><strong>Patrick Enrique Zago da Silva</strong><br>Back-End</p>
+        </div>
+
+        <div class="membro">
+          <img src="Urias.jpg" alt="Urias">
+          <p><strong>Urias Rodrigues Neto</strong><br>VideoMaker</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="frete-section">
+      <h3>Cálculo de Frete e Endereço</h3>
+
+      <button onclick="buscarEndereco()">Buscar Endereço e Calcular Frete</button>
+
+      <div id="saida"></div>
+      <div id="frete"></div>
+    </section>
+
+    <section id="contato">
+      <h3>Contato</h3>
+
+      <form action="https://formspree.io/f/xovyayrv" method="POST">
+        <input type="text" name="nome" placeholder="Seu nome" required style="width:100%;padding:10px;margin:5px 0;border-radius:8px;border:1px solid #ccc;">
+        <input type="email" name="email" placeholder="Seu e-mail" required style="width:100%;padding:10px;margin:5px 0;border-radius:8px;border:1px solid #ccc;">
+        <textarea name="mensagem" rows="4" placeholder="Sua mensagem" required style="width:100%;padding:10px;margin:5px 0;border-radius:8px;border:1px solid #ccc;"></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+
+    </section>
+
+  </main>
+
+  <footer>
+    SoloSmart — Projeto de Extensão em Empreendedorismo 2025-2
+  </footer>
+
+  <script>
+    async function buscarEndereco() {
+      const saida = document.getElementById("saida");
+      const frete = document.getElementById("frete");
+
+      let cep = prompt("Digite o CEP (somente números):");
+      if (!cep) return;
+
+      let cepLimpo = cep.replace(/\D/g, '');
+
+      if (cepLimpo.length !== 8) {
+        saida.innerHTML = "CEP inválido. Digite 8 números.";
+        return;
+      }
+
+      saida.innerHTML = "Buscando endereço...";
+      frete.innerHTML = "";
+
+      try {
+        const resposta = await fetch(https://viacep.com.br/ws/${cepLimpo}/json/);
+        const dados = await resposta.json();
+
+        if (dados.erro) {
+          saida.innerHTML = "CEP não encontrado.";
+          return;
+        }
+
+        saida.innerHTML = `
+          <strong>Endereço encontrado:</strong><br>
+          <b>Logradouro:</b> ${dados.logradouro || "-"}<br>
+          <b>Bairro:</b> ${dados.bairro || "-"}<br>
+          <b>Cidade:</b> ${dados.localidade}<br>
+          <b>Estado:</b> ${dados.uf}
+        `;
+
+        let valorFrete;
+        switch (dados.uf) {
+          case "SP": valorFrete = 20.00; break;
+          case "RJ": valorFrete = 30.00; break;
+          case "MG": valorFrete = 35.00; break;
+          case "RS": valorFrete = 42.00; break;
+          default: valorFrete = 45.00; break;
+        }
+
+        frete.innerHTML = <strong>Frete estimado:</strong> R$ ${valorFrete.toFixed(2)} para ${dados.localidade}/${dados.uf};
+
+      } catch (erro) {
+        saida.innerHTML = "Erro ao buscar o CEP. Tente novamente.";
+      }
+    }
+  </script>
+
+</body>
+</html>
